@@ -1,4 +1,4 @@
-![](Photo.jpg)
+### ![](Photo.jpg)
 
 # $~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~$  Venkata Sai Varun Bodla
 $~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~$ +1 667-379-2432 | *venkatb4@umbc.edu* | **LinkedIn:** *[Varun Bodla](https://www.linkedin.com/in/varun-bodla-1a0b25213)*
