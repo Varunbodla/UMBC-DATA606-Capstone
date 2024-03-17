@@ -9,7 +9,7 @@
 * The need for a robust language translation solution is evident in various domains, including business, diplomacy, education, healthcare, and everyday communication.
 * The goal is to develop a state-of-the-art language translation system that outperforms traditional methods, providing accurate, context-aware, and user-friendly translations for a diverse set of languages and applications.
 * The success of this project will contribute to breaking down language barriers, fostering global communication, and promoting inclusivity in an increasingly interconnected world.
-* Link to data source - *[https://statmt.org/europarl/](https://www.cfilt.iitb.ac.in/iitb_parallel/)*
+* Link to data source - *https://www.cfilt.iitb.ac.in/iitb_parallel/*
 
 **Dataset** : 
 * The dataset for this study would be The IIT Bombay English-Hindi Corpus compiled by the Indian Institute of Technology Bombay (IIT Bombay) for research purposes. This corpus consists of parallel text data in both English and Hindi languages.
