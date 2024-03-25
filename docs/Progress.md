@@ -31,7 +31,9 @@ Steps -
 
 11. Processing and cleaning the text data using the below functions.
 
-    ![image](https://github.com/Varunbodla/UMBC-DATA606-Capstone/assets/85016388/76bed09b-7d81-43d0-a761-65f290e897c0)
+    ![image](https://github.com/Varunbodla/UMBC-DATA606-Capstone/assets/85016388/0149f9e5-6f1c-44b2-83e1-8e7531fe3754)
+
+
     ![image](https://github.com/Varunbodla/UMBC-DATA606-Capstone/assets/85016388/8631525c-dacf-48eb-bda8-4fbfd66d86f2)
 
 13. Applying the function to both the language data for the created dataframe.
