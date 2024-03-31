@@ -31,8 +31,7 @@ Steps -
 
 11. Processing and cleaning the text data using the below functions.
 
-    ![image](https://github.com/Varunbodla/UMBC-DATA606-Capstone/assets/85016388/0149f9e5-6f1c-44b2-83e1-8e7531fe3754)
-
+    ![image](https://github.com/Varunbodla/UMBC-DATA606-Capstone/assets/85016388/01f18e3b-2df8-4252-91aa-b8aa4e2edbf0)
 
     ![image](https://github.com/Varunbodla/UMBC-DATA606-Capstone/assets/85016388/8631525c-dacf-48eb-bda8-4fbfd66d86f2)
 
