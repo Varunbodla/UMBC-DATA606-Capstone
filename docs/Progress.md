@@ -7,7 +7,7 @@ Steps -
 3. Mount the google drive to the notebook.
 4. Importing the required libraries.
 
-   ![image](https://github.com/Varunbodla/UMBC-DATA606-Capstone/assets/85016388/45b90070-78fe-4d81-9a1a-ffbaf232328c)
+   ![image](https://github.com/Varunbodla/UMBC-DATA606-Capstone/assets/85016388/a94160f3-820e-43cc-b9a2-ca3e68fdb1a6)
 
 5. Extracting all the files from the zip file using zipfile library.
 
