@@ -5,6 +5,8 @@ import nltk
 from nltk.corpus import stopwords
 from keras.preprocessing.sequence import pad_sequences
 import tensorflow as tf
+from keras.layers import Embedding, LSTM, Dense, Flatten, Input
+from keras.models import Model
 #from keras.models import load_model
 #from keras.preprocessing.text import Tokenizer
 
