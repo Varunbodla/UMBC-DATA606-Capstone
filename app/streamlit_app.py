@@ -4,6 +4,7 @@ import re
 import nltk
 from nltk.corpus import stopwords
 from keras.preprocessing.sequence import pad_sequences
+import tensorflow as tf
 #from keras.models import load_model
 #from keras.preprocessing.text import Tokenizer
 
