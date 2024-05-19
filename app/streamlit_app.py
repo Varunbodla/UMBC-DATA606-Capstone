@@ -4,6 +4,7 @@ import re
 import nltk
 from nltk.corpus import stopwords
 from keras.preprocessing.sequence import pad_sequences
+from keras.preprocessing.text import Tokenizer
 
 st.title('Language Translation App')
 st.write('Translate English to Hindi')
