@@ -3,7 +3,7 @@ import pickle
 import re
 import nltk
 from nltk.corpus import stopwords
-
+from keras.preprocessing.sequence import pad_sequences
 
 st.title('Language Translation App')
 st.write('Translate English to Hindi')
