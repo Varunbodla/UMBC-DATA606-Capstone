@@ -4,7 +4,6 @@ import re
 import nltk
 from nltk.corpus import stopwords
 from keras.preprocessing.sequence import pad_sequences
-import tensorflow as tf
 #from keras.models import load_model
 #from keras.preprocessing.text import Tokenizer
 
@@ -16,8 +15,118 @@ input_text = st.text_area('Enter text in English:', '')
 
 #with open('app/tokenizer_eng.pkl', 'rb') as file:
 #    tokenizer_eng = pickle.load(file)
-model = tf.saved_model.load('app/custom_model.h5')
-#model = load_model('app/custom_model.h5')
+
+class Encoder(tf.keras.Model):
+    '''
+    Encoder model -- That takes a input sequence and returns encoder-outputs,encoder_final_state_h,encoder_final_state_c
+    '''
+
+    def __init__(self,vocab_size,embedding_dim,encoder_units,input_length):
+      super().__init__()
+
+      self.vocab_size    = vocab_size
+      self.embedding_dim = embedding_dim
+      self.input_length  = input_length
+      self.encoder_units = encoder_units
+      self.embedding     = Embedding(input_dim=self.vocab_size, output_dim=self.embedding_dim, input_length=self.input_length,
+                           name="Encoder_Embedding_Layer")
+      self.lstm          = LSTM(self.encoder_units, return_state=True, return_sequences=True, name="Encoder_LSTM")
+
+    def call(self,input_sequence,states):
+
+      '''
+          This function takes a sequence input and the initial states of the encoder.
+          Pass the input_sequence input to the Embedding layer, Pass the embedding layer ouput to encoder_lstm
+          returns -- encoder_output, last time step's hidden and cell state
+      '''
+      input_embed                            = self.embedding(input_sequence)
+      lstm_output,lstm_state_h, lstm_state_c = self.lstm(input_embed,initial_state=states)
+      return lstm_output, lstm_state_h, lstm_state_c
+
+    def initialize_states(self,batch_size):
+
+      '''
+      Given a batch size it will return intial hidden state and intial cell state.
+      If batch size is 32- Hidden state is zeros of size [32,lstm_units], cell state zeros is of size [32,lstm_units]
+      '''
+      lstm_state_h = tf.zeros([batch_size,self.encoder_units],dtype=tf.dtypes.float32)
+      lstm_state_c = tf.zeros([batch_size,self.encoder_units],dtype=tf.dtypes.float32)
+      return lstm_state_h,lstm_state_c
+
+class Decoder(tf.keras.Model):
+    '''
+    Encoder model -- That takes a input sequence and returns output sequence
+    '''
+    def __init__(self,vocab_size, embedding_dim, decoder_units,input_length):
+      super().__init__()
+      self.vocab_size       = vocab_size
+      self.embedding_dim    = embedding_dim
+      self.input_length     = input_length
+      self.decoder_units    = decoder_units
+      self.embedding     = Embedding(input_dim=self.vocab_size, output_dim=self.embedding_dim, input_length=self.input_length,
+                           name="embedding_layer_decoder")
+      self.lstm          = LSTM(self.decoder_units, return_state=True, return_sequences=True, name="Decoder_LSTM")
+
+    def call(self,target_sentence,states):
+
+      '''
+          This function takes a sequence input and the initial states of the encoder.
+          Pass the input_sequence input to the Embedding layer, Pass the embedding layer ouput to decoder_lstm
+
+          returns -- decoder_output,decoder_final_state_h,decoder_final_state_c
+      '''
+      target_embed                                                = self.embedding(target_sentence)
+      decoder_output,decoder_final_state_h,decoder_final_state_c  = self.lstm(target_embed,states)
+      return decoder_output,decoder_final_state_h,decoder_final_state_c
+
+class Encoder_decoder(tf.keras.Model):
+
+    def __init__(self,vocab_size_eng,vocab_size_hin, embedding_dim_eng,
+                 embedding_dim_hin, input_length_eng,input_length_hin, encoder_units,decoder_units):
+      super().__init__()
+      self.vocab_size_eng       =  vocab_size_eng
+      self.vocab_size_hin       =  vocab_size_hin
+      self.embedding_dim_eng    =  embedding_dim_eng
+      self.embedding_dim_hin    =  embedding_dim_hin
+      self.input_length_eng     =  input_length_eng
+      self.input_length_hin     =  input_length_hin
+      self.encoder_units        =  encoder_units
+      self.decoder_units        =  decoder_units
+      self.encoder   = Encoder(vocab_size=self.vocab_size_eng+1,embedding_dim=self.embedding_dim_eng
+                               ,encoder_units=self.encoder_units,input_length=self.input_length_eng)
+      self.decoder   = Decoder(vocab_size=self.vocab_size_hin+1,embedding_dim=self.embedding_dim_hin
+                               ,decoder_units=self.decoder_units,input_length=self.input_length_hin)
+      self.dense     = Dense(self.vocab_size_hin, activation='softmax') #
+
+    def call(self,data):
+      '''
+        A. Pass the input sequence to Encoder layer -- Return encoder_output,encoder_final_state_h,encoder_final_state_c
+        B. Pass the target sequence to Decoder layer with intial states as encoder_final_state_h,encoder_final_state_C
+        C. Pass the decoder_outputs into Dense layer
+        Return decoder_outputs
+      '''
+
+      input,output   =   data[0],data[1]
+      initial_state  =   self.encoder.initialize_states(batch_size=batch_size)
+
+      encoder_output, encoder_h, encoder_c = self.encoder(input,initial_state)
+      states         =   [encoder_h,encoder_c]
+      decoder_output,decoder_h, decoder_c =   self.decoder(output, states)
+      output          =   self.dense(decoder_output)
+      return output
+
+vocab_size_eng = 8471
+vocab_size_hin = 9495
+
+model = Encoder_decoder(vocab_size_eng=vocab_size_eng,vocab_size_hin=vocab_size_hin,
+                        embedding_dim_eng=150, embedding_dim_hin=150,
+                        input_length_eng=56,
+                        input_length_hin=62,
+                        encoder_units=32,
+                        decoder_units=32)
+
+
+model.load_weights('app/custom_model.h5')
 
 max_len_eng = 56
 max_len_hin = 62
