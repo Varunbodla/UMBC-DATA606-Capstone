@@ -4,7 +4,8 @@ import re
 import nltk
 from nltk.corpus import stopwords
 from keras.preprocessing.sequence import pad_sequences
-from keras.models import load_model
+import tensorflow as tf
+#from keras.models import load_model
 #from keras.preprocessing.text import Tokenizer
 
 st.title('Language Translation App')
@@ -15,8 +16,8 @@ input_text = st.text_area('Enter text in English:', '')
 
 #with open('app/tokenizer_eng.pkl', 'rb') as file:
 #    tokenizer_eng = pickle.load(file)
-
-model = load_model('app/custom_model.h5')
+model = tf.saved_model.load('app/custom_model.h5')
+#model = load_model('app/custom_model.h5')
 
 max_len_eng = 56
 max_len_hin = 62
