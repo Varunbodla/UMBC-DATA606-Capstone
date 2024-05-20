@@ -166,8 +166,6 @@ model = Encoder_decoder(vocab_size_eng=vocab_size_eng,vocab_size_hin=vocab_size_
                         encoder_units=32,
                         decoder_units=32)
 
-create model for loading .h5 weights using model.load_weights
-
 # Instantiate the model
 model = Encoder_decoder(vocab_size_eng=8471,
                         vocab_size_hin=9495,
