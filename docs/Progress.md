@@ -49,6 +49,32 @@ It can be observed from the above histograms that the distribution of word lengt
 
 ![image](https://github.com/Varunbodla/UMBC-DATA606-Capstone/assets/85016388/7ff9260a-20b0-488b-990a-6264f9f214e4)
 
+The following is the workflow for Encoder - Decoder model.
+
+- We create 2 inputs for the model
+- One is fed to the Encoder as the input.
+- The Encoder will generate Encoder Output and the Encoder states.
+- The Encoder states are then fed to the decoder along with decoder input.
+- The output of the decoder is passed through the dense layer.
+- The dense layer predicts the output word.
+
+Here, for this model there are 3,055,383 trainable parameters (of size 11.66 MB)
+
+The model is trained with the following parameters.
+
+- Optimizer - Adam
+- Initial learning rate - 0.001
+- Loss - sparse_categorical_crossentropy
+- Metric - sparse_categorical_accuracy
+- Batch Size - 64
+- Epochs - 50 
+- Early Stopping with a patience of 4
+- ReduceLROnPlateau with a patience of 2 by a factor of 0.95
+
+The solution converged at 50th Epoch. At Convergence, the following results are obtained.
+
+
+
 
 
 
