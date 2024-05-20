@@ -66,7 +66,7 @@ def translate(input_text):
     with open('app/tokenizer_eng.pickle', 'rb') as file:
         tokenize_eng = pickle.load(file)
     input_sequence    = pad_sequences(tokenize_eng.texts_to_sequences([input_sequence]), maxlen=max_len_eng, dtype='int32', padding='post')
-    model.load_weights('app/custom_model.h5')
+    #model.load_weights('app/custom_model.h5')
     en_h,en_c         = model.layers[0].initialize_states(1)
     en_outputs        = model.layers[0](tf.constant(input_sequence), [en_h,en_c])
     de_input          = tf.constant([[word2idx_outputs['<start>']]])
