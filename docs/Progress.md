@@ -5,7 +5,7 @@
 
 **Objective** :
 
-  The main aim of this study is to develop language translation system leveraging deep learning techniques in NLP to enable accurate translations between Hindi to English language.
+  The main aim of this study is to develop language translation system leveraging deep learning techniques in NLP to enable accurate translations between English to Hindi. language.
 
 **Need of this study** :
 * In a globally interconnected world with diverse linguistic communities, effective communication across language barriers is essential.
@@ -71,10 +71,23 @@ The model is trained with the following parameters.
 - Early Stopping with a patience of 4
 - ReduceLROnPlateau with a patience of 2 by a factor of 0.95
 
+**Results**
+
 The solution converged at 50th Epoch. At Convergence, the following results are obtained.
 
+![image](https://github.com/Varunbodla/UMBC-DATA606-Capstone/assets/85016388/e64f1e52-4247-4584-ad16-9bd004f91815)
 
+| Train Loss  | Test Loss   | Train Accuracy | Test Accuracy |
+|-------------|-------------|----------------|---------------|
+| 9.0221e-04  | 8.8506e-04  | 1.00           | 1.00          |
 
+**Conclusion**
 
+The machine translation model from English to Hindi performs exceptionally well with perfect accuracy and very low error rates on the provided data. This excellent performance offers several real-world benefits:
 
-
+- Better Access - The model makes it easier for Hindi-speaking people to access information and services that were previously available only in English.
+- Enhanced Communication - It improves communication in personal, professional, and business contexts, helping people understand each other better.
+- Business Expansion - Companies can reach more customers in the Hindi-speaking market, driving business growth.
+- Educational Support -  Students and learners can access a wider range of educational materials, aiding their learning and development.
+- Healthcare Improvement -  Hindi-speaking patients can get accurate medical information and care, leading to better health outcomes.
+In summary, the model's ability to accurately translate between English and Hindi can positively impact various areas, making information and services more accessible and communication more effective.
