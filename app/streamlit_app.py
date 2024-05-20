@@ -159,13 +159,6 @@ class Encoder_decoder(tf.keras.Model):
       output          =   self.dense(decoder_output)
       return output
 
-model = Encoder_decoder(vocab_size_eng=vocab_size_eng,vocab_size_hin=vocab_size_hin,
-                        embedding_dim_eng=150, embedding_dim_hin=150,
-                        input_length_eng=train_dataloader[0][0][0].shape[-1],
-                        input_length_hin=train_dataloader[0][0][1].shape[-1],
-                        encoder_units=32,
-                        decoder_units=32)
-
 # Instantiate the model
 model = Encoder_decoder(vocab_size_eng=8471,
                         vocab_size_hin=9495,
