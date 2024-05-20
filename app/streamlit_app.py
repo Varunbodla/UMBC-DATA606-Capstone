@@ -58,6 +58,25 @@ def preprocess(text):
     return text
 
 
+from tensorflow.keras.models import Model
+from tensorflow.keras.layers import Input
+
+# Assuming you have defined vocab_size_eng, vocab_size_hin, train_dataloader, etc.
+
+# Define input layers
+input_eng = Input(shape=(56,), name='input_eng')
+input_hin = Input(shape=(62,), name='input_hin')
+
+# Instantiate the model
+model = Encoder_decoder(vocab_size_eng=8471,
+                        vocab_size_hin=9495,
+                        embedding_dim_eng=150,
+                        embedding_dim_hin=150,
+                        input_length_eng=56,
+                        input_length_hin=62,
+                        encoder_units=32,
+                        decoder_units=32)
+
 def translate(input_text):
     input_sequence    = preprocess(input_text)
     with open('app/tokenizer_eng.pickle', 'rb') as file:
