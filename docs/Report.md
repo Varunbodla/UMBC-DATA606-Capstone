@@ -1,6 +1,6 @@
 ## $~~~~~~~~~~~$ Cross-Linguistic Communication - A Natural Language Processing Approach
 - **GitHub -** *https://github.com/Varunbodla/UMBC-DATA606-Capstone*
-- **PPT -** https://github.com/Varunbodla/UMBC-DATA606-Capstone/blob/main/Cross-Linguistic.pdf
+- **PPT -** https://github.com/Varunbodla/UMBC-DATA606-Capstone/blob/main/docs/Cross-Linguistic.pdf
 - **YouTube -** https://youtu.be/nJh7alvXyn4
 
 **Objective** :
