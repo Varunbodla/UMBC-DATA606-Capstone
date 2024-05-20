@@ -77,6 +77,8 @@ model = Encoder_decoder(vocab_size_eng=8471,
                         encoder_units=32,
                         decoder_units=32)
 
+model.compile(optimizer='adam', loss='categorical_crossentropy', metrics=['accuracy'])
+
 def translate(input_text):
     input_sequence    = preprocess(input_text)
     with open('app/tokenizer_eng.pickle', 'rb') as file:
