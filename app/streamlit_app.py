@@ -8,8 +8,7 @@ from keras.preprocessing.sequence import pad_sequences
 import tensorflow as tf
 from keras.layers import Embedding, LSTM, Dense, Flatten, Input
 from keras.models import Model
-#from keras.models import load_model
-#from keras.preprocessing.text import Tokenizer
+
 
 st.title('Language Translation App')
 st.write('Translate English to Hindi')
@@ -17,8 +16,7 @@ st.write('Translate English to Hindi')
 # User input
 input_text = st.text_area('Enter text in English:', '')
 
-#with open('app/tokenizer_eng.pkl', 'rb') as file:
-#    tokenizer_eng = pickle.load(file)
+
 
 #model.load_weights('app/custom_model.h5')
 
@@ -69,6 +67,8 @@ def preprocess(text):
 
 def translate(input_text):
     input_sequence    = preprocess(input_text)
+    with open('app/tokenizer_eng.pkl', 'rb') as file:
+        tokenizer_eng = pickle.load(file)
     input_sequence    = pad_sequences(tokenize_eng.texts_to_sequences([input_sequence]), maxlen=max_len_eng, dtype='int32', padding='post')
     en_h,en_c         = model.layers[0].initialize_states(1)
     en_outputs        = model.layers[0](tf.constant(input_sequence), [en_h,en_c])
