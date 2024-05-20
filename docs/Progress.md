@@ -1,67 +1,54 @@
-## Cross-Linguistic Communication - A Natural Language Processing Approach
-## Project Progress
+## $~~~~~~~~~~~$ Cross-Linguistic Communication - A Natural Language Processing Approach
+- **GitHub -** *https://github.com/Varunbodla/UMBC-DATA606-Capstone*
+- **PPT -** 
+- **YouTube -** 
 
-Steps - 
-1. Download the data from the source https://www.cfilt.iitb.ac.in/iitb_parallel/ and upload to the google drive.
-2. Open colab and create a new notebook.
-3. Mount the google drive to the notebook.
-4. Importing the required libraries.
+**Objective** :
 
-   ![image](https://github.com/Varunbodla/UMBC-DATA606-Capstone/assets/85016388/a94160f3-820e-43cc-b9a2-ca3e68fdb1a6)
+  The main aim of this study is to develop language translation system leveraging deep learning techniques in NLP to enable accurate translations between Hindi to English language.
 
-5. Extracting all the files from the zip file using zipfile library.
+**Need of this study** :
+* In a globally interconnected world with diverse linguistic communities, effective communication across language barriers is essential.
+* Traditional language translation methods often face challenges in capturing the contextual nuances, handling ambiguity, and providing accurate and contextually relevant translations.
+* The need for a robust language translation solution is evident in various domains, including business, diplomacy, education, healthcare, and everyday communication.
+* The goal is to develop a state-of-the-art language translation system that outperforms traditional methods, providing accurate, context-aware, and user-friendly translations for a diverse set of languages and applications.
+* The success of this project will contribute to breaking down language barriers, fostering global communication, and promoting inclusivity in an increasingly interconnected world.
+* Link to data source - *https://www.cfilt.iitb.ac.in/iitb_parallel/*
 
-   ![image](https://github.com/Varunbodla/UMBC-DATA606-Capstone/assets/85016388/f986d715-dc33-4bc8-96f7-b25949c51ee5)
+**Dataset** : 
+* The dataset for this study would be The IIT Bombay English-Hindi Corpus compiled by the Indian Institute of Technology Bombay (IIT Bombay) for research purposes. This corpus consists of parallel text data in both English and Hindi languages.
+* The dataset is of the size 99.7 MB
+* This dataset contains pairs of sentences in English and Hindi, where each English sentence corresponds to its equivalent in Hindi. The corpus likely encompasses a diverse range of topics and genres to capture the variations in language usage across different contexts. It may include texts from various sources such as news articles, literature, websites, and possibly even user-generated content.
 
-6. Read the data from the file and store the english text data in the list.
+**Methodology**:
 
-   ![image](https://github.com/Varunbodla/UMBC-DATA606-Capstone/assets/85016388/212796e6-4a71-421f-a126-36b1b556661e)
+![image](https://github.com/Varunbodla/UMBC-DATA606-Capstone/assets/85016388/a5e09ad4-5fe2-43db-ab67-aea6c668740b)
 
-7. Read the data from the file and store the hindi text data in the list.
+**Data Cleaning**:
+- Originally, the dataset has 1.65 million datapoints in both English and Hindi languages. In order to simplify the study considering the computation resources, 5000 points 
+  have been randomly sampled from the original dataset.
+- The following text cleaning steps have been performed.
+   - Apply decontractions for English language text. For example, can’t to cannot and wouldn’t to would not.
+   - Lower case the text. 
+   - Remove all the non-alphabetic characters from the text string leaving only letters.
+   - For Hindi language text, extracting only Hindi word text.
+   - Removing single letter words
+   - Removing stop words from the English text.
+   - Dropping rows with empty strings in the Hindi and English columns.
+ - The effective shape of the dataset has become 4859 datapoints.
 
-   ![image](https://github.com/Varunbodla/UMBC-DATA606-Capstone/assets/85016388/77c2a9c0-fee3-484c-b5a3-0d96b5c7d786)
+**Exploratory Data Analysis**:
 
-9. Checking for the length of the data in both the languages.
+It is important to analyze the word lengths for hindi and english sentences to check if there is any skewness in its distribution.
 
-   ![image](https://github.com/Varunbodla/UMBC-DATA606-Capstone/assets/85016388/5d7f84db-9a6e-4af9-bd5e-913af009ae88)
+![image](https://github.com/Varunbodla/UMBC-DATA606-Capstone/assets/85016388/25b2ec08-aa74-4453-aec4-ce4c20dbe4d2)
 
-10. Creating a dataframe for the above english and hindi text data.
+It can be observed from the above histograms that the distribution of word lengths for both Hindi and English are skewed towards right. It can be inferred that there are more sentences with less number of words in text in both English and Hindi languages for the given data.
 
-    ![image](https://github.com/Varunbodla/UMBC-DATA606-Capstone/assets/85016388/566885f1-5d80-4d0e-ac22-31b1c7178378)
+**Model Architecture**:
 
-11. Processing and cleaning the text data using the below functions.
+![image](https://github.com/Varunbodla/UMBC-DATA606-Capstone/assets/85016388/7ff9260a-20b0-488b-990a-6264f9f214e4)
 
-    ![image](https://github.com/Varunbodla/UMBC-DATA606-Capstone/assets/85016388/01f18e3b-2df8-4252-91aa-b8aa4e2edbf0)
 
-    ![image](https://github.com/Varunbodla/UMBC-DATA606-Capstone/assets/85016388/8631525c-dacf-48eb-bda8-4fbfd66d86f2)
-
-13. Applying the function to both the language data for the created dataframe.
-
-    ![image](https://github.com/Varunbodla/UMBC-DATA606-Capstone/assets/85016388/a47e3a84-e9cc-48c7-b150-ef9283f3eec7)
-
-14. Calculating the number of words in each entry of the 'hindi' and 'english' columns. These lengths are extracted to check the distribution of word lengths.
-
-    ![image](https://github.com/Varunbodla/UMBC-DATA606-Capstone/assets/85016388/a804e286-ed0e-4232-b45f-7dad02d10adc)
-
-15. Plotting the distribution of number of words for each entry for both the languages.
-
-    ![image](https://github.com/Varunbodla/UMBC-DATA606-Capstone/assets/85016388/3162837a-2eec-46bd-8399-5de9de14640b)
-
-    It can be observed from the above histograms that the distribution of word lengths for both hindi and english are skewed towards right. The following things can be inferred.
-
-    There are more sentences with less number of words in text in both english and hindi languages for the given data.
-
-16. Calculating the percentiles for english and hindi word lengths.
-
-    ![image](https://github.com/Varunbodla/UMBC-DATA606-Capstone/assets/85016388/5a5f82ce-f6c5-447a-9504-9cee08f6494a)
-    ![image](https://github.com/Varunbodla/UMBC-DATA606-Capstone/assets/85016388/73250233-cb0d-4eaf-9835-b944ad5fdfd0)
-
-17. Preparing the data for modelling by appending <start> and <end> tokens.
-
-    ![image](https://github.com/Varunbodla/UMBC-DATA606-Capstone/assets/85016388/4d5448a6-c25b-4d14-8334-41f759b563c3)
-
-18. Splitting the data into train and test in the ratio of 75.:25 respectively.
-
-    ![image](https://github.com/Varunbodla/UMBC-DATA606-Capstone/assets/85016388/d71b658b-3992-4735-9755-fc393e29fb17)
 
 
