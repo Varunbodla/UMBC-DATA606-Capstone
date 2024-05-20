@@ -6,9 +6,6 @@ nltk.download('stopwords')
 from nltk.corpus import stopwords
 from keras.preprocessing.sequence import pad_sequences
 import tensorflow as tf
-from keras.layers import Embedding, LSTM, Dense, Flatten, Input
-from keras.models import Model
-
 
 st.title('Language Translation App')
 st.write('Translate English to Hindi')
