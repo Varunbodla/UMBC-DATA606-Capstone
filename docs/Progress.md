@@ -71,7 +71,7 @@ The model is trained with the following parameters.
 - Early Stopping with a patience of 4
 - ReduceLROnPlateau with a patience of 2 by a factor of 0.95
 
-**Results**
+**Results**:
 
 The solution converged at 50th Epoch. At Convergence, the following results are obtained.
 
@@ -90,4 +90,18 @@ The machine translation model from English to Hindi performs exceptionally well 
 - Business Expansion - Companies can reach more customers in the Hindi-speaking market, driving business growth.
 - Educational Support -  Students and learners can access a wider range of educational materials, aiding their learning and development.
 - Healthcare Improvement -  Hindi-speaking patients can get accurate medical information and care, leading to better health outcomes.
+
 In summary, the model's ability to accurately translate between English and Hindi can positively impact various areas, making information and services more accessible and communication more effective.
+
+**Deployment**:
+
+The web application has been built using Streamlit and has been deployed in Streamlit Cloud.
+
+![image](https://github.com/Varunbodla/UMBC-DATA606-Capstone/assets/85016388/957b1617-15ce-48e0-a0c8-c7b82c005df4)
+
+Link - https://language-translation-application.streamlit.app/
+
+**Future Work**:
+
+- Due to the limited computation resources, the model has been trained with just 5000 datapoints. The model could very well be learned with all the 1.65 million points with   a good neural machine and therefore can make the model generalize well on the unseen data.
+- The Attention layer can be added to the encoder decoder model to learn the long sequences effectively.
