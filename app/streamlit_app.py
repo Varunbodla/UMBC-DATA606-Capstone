@@ -19,7 +19,7 @@ input_text = st.text_area('Enter text in English:', '')
 #with open('app/tokenizer_eng.pkl', 'rb') as file:
 #    tokenizer_eng = pickle.load(file)
 
-model.load_weights('app/custom_model.h5')
+#model.load_weights('app/custom_model.h5')
 
 max_len_eng = 56
 max_len_hin = 62
