@@ -81,7 +81,7 @@ The solution converged at 50th Epoch. At Convergence, the following results are 
 |-------------|-------------|----------------|---------------|
 | 9.0221e-04  | 8.8506e-04  | 1.00           | 1.00          |
 
-**Conclusion**
+**Conclusion**:
 
 The machine translation model from English to Hindi performs exceptionally well with perfect accuracy and very low error rates on the provided data. This excellent performance offers several real-world benefits:
 
