@@ -57,10 +57,6 @@ def preprocess(text):
 
     return text
 
-
-
-model.load_weights('app/custom_model.h5')
-
 def translate(input_text):
     input_sequence    = preprocess(input_text)
     with open('app/tokenizer_eng.pickle', 'rb') as file:
