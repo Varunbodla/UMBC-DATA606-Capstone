@@ -66,7 +66,7 @@ def preprocess(text):
     return text
 
 
-def generate_predictions(input_text):
+def translate(input_text):
     input_sequence    = preprocess(input_text)
     input_sequence    = pad_sequences(tokenize_eng.texts_to_sequences([input_sequence]), maxlen=max_len_eng, dtype='int32', padding='post')
     en_h,en_c         = model.layers[0].initialize_states(1)
